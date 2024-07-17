@@ -1,0 +1,117 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+    <form method="POST" action="/search">
+        <div class="box-container">
+            <div class="box origin-box">
+                <label for="origin" class="custom-label">Origin:</label>
+                <select id="origin" name="origin" class="styled-select">
+                    <option value="JFK" {% if origin==
+                    'JFK' %}selected{% endif %}>JFK</option>
+                    <option value="DEL" {% if origin==
+                    'DEL' %}selected{% endif %}>DEL</option>
+                    <option value="SYD" {% if origin==
+                    'SYD' %}selected{% endif %}>SYD</option>
+                    <option value="BOM" {% if origin==
+                    'BOM' %}selected{% endif %}>BOM</option>
+                    <option value="BNE" {% if origin==
+                    'BNE' %}selected{% endif %}>BNE</option>
+                    <option value="BLR" {% if origin==
+                    'BLR' %}selected{% endif %}>BLR</option>
+                </select>
+            </div>
+
+            <div class="box destination-box">
+                <label for="destination" class="custom-label">Destination:</label>
+                <select id="destination" name="destination" class="styled-select">
+                    <option value="JFK" {% if destination==
+                    'JFK' %}selected{% endif %}>JFK</option>
+                    <option value="DEL" {% if destination==
+                    'DEL' %}selected{% endif %}>DEL</option>
+                    <option value="SYD" {% if destination==
+                    'SYD' %}selected{% endif %}>SYD</option>
+                    <option value="LHR" {% if destination==
+                    'LHR' %}selected{% endif %}>LHR</option>
+                    <option value="CDG" {% if destination==
+                    'CDG' %}selected{% endif %}>CDG</option>
+                    <option value="DOH" {% if destination==
+                    'DOH' %}selected{% endif %}>DOH</option>
+                    <option value="SIN" {% if destination==
+                    'SIN' %}selected{% endif %}>SIN</option>
+                </select>
+            </div>
+
+            <div class="box cabin-box">
+                <label for="class_selection" class="custom-label">Cabin Selection:</label>
+                <select id="class_selection" name="class_selection" class="styled-select">
+                    <option value="economy" {% if class_selection==
+                    'economy' %}selected{% endif %}>Economy</option>
+                    <option value="business" {% if class_selection==
+                    'business' %}selected{% endif %}>Business</option>
+                    <option value="first" {% if class_selection==
+                    'first' %}selected{% endif %}>First</option>
+                </select>
+            </div>
+
+            <div class="box">
+                <button type="submit" class="styled-button">Search</button>
+            </div>
+        </div>
+    </form>
+
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+
+    {% if flights %}
+    <div class="results">
+        {% for flight in flights %}
+                    <div class="flight">
+
+                           <div class="flight-details">
+                    <img src="{{ flight.logo }}" alt="Flight Logo" class="flight-logo">
+                    <h2>{{ flight.partner_program }}</h2>
+                    <p>{{ origin }} -> {{ destination }}</p>
+                    <p>2024-07-09-2024-10-07</p>
+                </div>
+
+                <div class="details-block">
+                    {% if flight.min_business_miles %}
+                    <p style="font-size: 20px; margin-top: 10px;">{{ flight.min_business_miles }} <span style="font-size: 14px;">+ ${{ flight.min_business_tax }}</span></p>
+                    {% else %}
+                    <p style="font-size: 20px; margin-top: 10px;">N/A</p>
+                    {% endif %}
+                    <p style="font-size: 10px;">Min Business Miles</p>
+                </div>
+
+                <div class="details-block">
+                    {% if flight.min_economy_miles %}
+                    <p style="font-size: 20px; margin-top: 10px;">{{ flight.min_economy_miles }} <span style="font-size: 14px;">+ ${{ flight.min_economy_tax }}</span></p>
+                    {% else %}
+                    <p style="font-size: 20px; margin-top: 10px;">N/A</p>
+                    {% endif %}
+                    <p style="font-size: 10px;">Min Economy Miles</p>
+                </div>
+
+                <div class="details-block">
+                    {% if flight.min_first_miles %}
+                    <p style="font-size: 20px; margin-top: 10px;">{{ flight.min_first_miles }} <span style="font-size: 14px;">+ ${{ flight.min_first_tax }}</span></p>
+                    {% else %}
+                    <p style="font-size: 20px; margin-top: 10px;">N/A</p>
+                    {% endif %}
+                    <p style="font-size: 10px;">Min First Miles</p>
+                </div>
+
+
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+
+
+
+

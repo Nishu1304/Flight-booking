@@ -1,0 +1,142 @@
+/* General container and box styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #001403; /* Dark green background for the entire page */
+    color: #FFF; /* White text */
+    text-align: center;
+    font-size: 10px;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.box-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.box {
+    padding: 10px;
+    margin: 10px;
+    background-color: #001403; /* Dark green background */
+    width: 300px;
+    text-align: left; /* Align text to the left */
+    border: none;
+}
+
+.custom-label {
+    font-size: 13px; /* Adjust the font size */
+    color: #FFF; /* White text */
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Unique styles for Origin box */
+.origin-box {
+    background-color: #000000; /* Black background */
+    height: 35px;
+}
+
+.origin-box .custom-label {
+    font-size: 10px; /* Font size for Origin label */
+    color: #FFF;
+}
+
+/* Unique styles for Destination box */
+.destination-box {
+    background-color: #000000; /* Black background */
+    height: 35px;
+    margin: 20px;
+}
+
+.destination-box .custom-label {
+    font-size: 10px; /* Font size for Destination label */
+    color: #FFF;
+}
+
+/* Unique styles for Cabin Selection box */
+.cabin-box {
+    background-color: #367c2b; /* Green background */
+    height: 35px;
+    margin: 20px;
+}
+
+.cabin-box .custom-label {
+    font-size: 10px; /* Font size for Cabin label */
+    color: #FFF;
+}
+
+/* General styles for the dropdown */
+.styled-select {
+    width: 100%; /* Full width within the box */
+    padding: 5px;
+    background-color: #000000; /* Black background for select */
+    color: #FFF; /* White text */
+    border: none;
+    border-radius: 3px;
+    font-size: 16px; /* Adjust font size if necessary */
+    margin-bottom: 10px;
+}
+
+/* Styles for the cabin dropdown */
+.cabin-box .styled-select {
+    background-color: #367c2b; /* Green background for cabin select */
+    color: #FFF; /* White text */
+}
+
+
+.styled-button {
+    width: 100px; /* Full width within the box */
+    padding: 10px;
+    background-color: #007acc; /* Blue button */
+    color: #FFF;
+    border: none; /* Remove border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* Adjust font size if necessary */
+}
+
+.styled-button:hover {
+    background-color: #005f80; /* Darker blue on hover */
+}
+
+
+.results {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.flight {
+    background-color: #004d00;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 200px; /* Adjust width as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.flight-details {
+    margin-bottom: 10px; /* Space between logo, flight name, and destination */
+    text-align: center;
+}
+
+.flight-logo {
+    margin-bottom: 10px; /* Space below flight logo */
+}
+
+.details-block {
+    margin-bottom: 20px; /* Vertical space between each details block */
+}
+
+.details-block p {
+    margin: 0; /* Remove default margins for paragraph tags */
+}
